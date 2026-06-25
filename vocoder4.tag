@@ -1,24 +1,14 @@
 {if:{args:1}==info|
-{embed:{"title": "Vocoder4.tag Rewritten", "description": "Credits:\n bconex - rewriting Vocoder4\nunknown user - creating og Vocoder4"}}
+  {embed:{"title": "Vocoder4 Rewritten", "description": "Credits:\n bconex - rewriting Vocoder4\nunknown user - creating og Vocoder4"}}
   {return}
 }
 
-{=(has_attachment):{if:{attachment}!=|true|false}}
-{=(has_url):{if:{regex:(https?://):{args:1}}!=|true|false}}
+{=(has_attach):{if:{attachment}!=|1|0}}
+{=(has_url):{if:{regex:(https?://):{args:1}}!=|1|0}}
 
-{if:{has_attachment}==false|
-  {if:{args:1}!=|
-    ⚠️ | no media uploaded.
-    {return}
-  }
-}
-
-{if:{has_attachment}==true|
-  {if:{has_url}==false|
-    ⚠️ | invalid url/no url was detected!
-    {return}
-  }
-}
+{if:{has_attach}{has_url}==00|⚠️ | invalid url/no url was detected!{return}}
+{if:{has_attach}{has_url}==01|⚠️ | no media uploaded.{return}}
+{if:{has_attach}{has_url}==10|⚠️ | invalid url/no url was detected!{return}}
 
 ✅ videos are done!
 -# here’s them video:
